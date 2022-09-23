@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  mock:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    command: air -c .air.mock.toml
+    ports:
+      - 9080:9080
+    volumes:
+      - .:/go/src/github.com/ryoshindo/grpc-mock-server-sandbox

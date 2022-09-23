@@ -1,0 +1,19 @@
+syntax = "proto3";
+package mock;
+option go_package = "api/mock";
+
+import "google/protobuf/any.proto";
+
+message MockRequest {
+  string method = 1;
+  google.protobuf.Any body = 2;
+  int32 sleep = 3;
+}
+
+message MockResponse {
+  google.protobuf.Any body = 1;
+}
+
+service MockService {
+  rpc Mock(MockRequest) returns (MockResponse) {}
+}
